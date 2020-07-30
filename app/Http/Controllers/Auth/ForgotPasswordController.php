@@ -44,6 +44,7 @@ class ForgotPasswordController extends Controller
             ],
             'form_params' => [
                 'email' => $request->email,
+                'url' => url("/"),
             ],
         ]);
 
