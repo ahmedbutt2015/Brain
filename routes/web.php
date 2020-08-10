@@ -114,3 +114,5 @@ Route::post('/new-system-store', 'UserActionApiController@newSystem')->name('sto
 Route::post('/new-system-template', 'UserActionApiController@storeSystem')->name('api-store-template'); //Store in DB
 
 Route::get('/history', 'UserActionApiController@viewHistory')->name('api-history');
+
+Route::get('/general-config','FamilyController@getAllFamilyWithAddons');

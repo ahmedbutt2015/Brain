@@ -74,6 +74,8 @@ class RegisterController extends Controller
 
     public function apiRegister(Request $request)
     {
+
+
         $this->validator($request->all())->validate();
 
         $http = new Client();
@@ -96,7 +98,7 @@ class RegisterController extends Controller
 
             User::createAuth($info['success']['user']);
     
-            return redirect('/');
+            return redirect('/general-config');
         
         }else{
             return redirect()->to(route('login'))->with('error', 'Unknown Error Occurred');

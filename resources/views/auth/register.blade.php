@@ -34,7 +34,7 @@
                         <h1 class="">Sign Up</h1>
                         <p class="">Create your Account.</p>
 
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('api-register') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group row">
@@ -55,7 +55,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control {{$errors->first('email') ? 'is-invalid' : ''}}" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="email" type="email" name="email" class="form-control {{$errors->first('email') ? 'is-invalid' : ''}}" value="{{ old('email') }}" required autocomplete="email">
 
                                 @if($errors->first('email'))
                                     <div class="col-md-4 text-danger">

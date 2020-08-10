@@ -64,7 +64,7 @@ class LoginController extends Controller
             session()->put('authUser', $info['success']['user']); 
 
             User::createAuth($info['success']['user']);
-    
+
             return redirect('/');
         
         }else{
