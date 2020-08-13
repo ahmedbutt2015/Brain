@@ -116,3 +116,5 @@ Route::post('/new-system-template', 'UserActionApiController@storeSystem')->name
 Route::get('/history', 'UserActionApiController@viewHistory')->name('api-history');
 
 Route::get('/general-config','FamilyController@getAllFamilyWithAddons');
+Route::post('/addon-save','UserAddonController@store')->name('api-saveAddon');
+Route::post('/language-currency-save','UserActionApiController@saveLanguageCurrency')->name('api-language-currency');

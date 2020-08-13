@@ -222,6 +222,10 @@
       {{-- Components Tabs --}}
       <script src="{{asset('assets/js/scrollspyNav.js')}}"></script>
       @break
+@case('General-Config')
+      {{-- Components Tabs --}}
+      <script src="{{asset('assets/js/scrollspyNav.js')}}"></script>
+      @break
 
     @case('drag_n_drop')
       {{-- Drag and Drop ----> Dragula --}}

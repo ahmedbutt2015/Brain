@@ -129,4 +129,7 @@ return redirect()->to(url('new-system'))->with('error','Credentials was wrong! C
         ];
         return view('BrainPages.history')->with('histories',$info['histories'])->with($data);
     }
+    public function saveLanguageCurrency(Request $request){
+        return "done";
+    }
 }
