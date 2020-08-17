@@ -10,12 +10,11 @@ class UserAddonController extends Controller
 {
     //
     public function store(Request $request){
-
             $addons=[];
-            foreach ($request->input('addons') as $key => $value) {
-                $addons[] = $value;
-            }
 
+                foreach ($request->input('addons') as $key => $value) {
+                    $addons[] = $value;
+            }
 
        $userId= session('authUser.id');
         $http = new Client();
