@@ -8,6 +8,8 @@ use App\User;
 use App\Log;
 use App\System;
 use Auth;
+use GuzzleHttp\Client;
+
 
 class PagesController extends Controller
 {
@@ -47,11 +49,24 @@ class PagesController extends Controller
         $data = [
             'category_name' => 'dashboard',
             'page_name' => 'Templates',
-                'has_scrollspy' => 0,
-                'scrollspy_offset' => '',
+            'has_scrollspy' => 0,
+            'scrollspy_offset' => '',
 
         ];
         return view('BrainPages.template')->with($data);
+    }
+    public function generalSetting(){
+        $http=new Client();
+        $response=$http->request('get',config('app.url').'/api/general-Setting');
+        $familyaddons = json_decode((string) $response->getBody(), true);
+        $data = [
+            'category_name' => 'General-Config',
+            'page_name' => 'General-Config',
+            'has_scrollspy' => 0,
+            'scrollspy_offset' => '',
+            'familyaddons' => $familyaddons
+        ];
+        return view('BrainPages.genertSetting')->with($data);
     }
 
 }

@@ -98,7 +98,7 @@ class RegisterController extends Controller
 
             User::createAuth($info['success']['user']);
     
-            return redirect('/general-config');
+            return redirect('/');
         
         }else{
             return redirect()->to(route('login'))->with('error', 'Unknown Error Occurred');

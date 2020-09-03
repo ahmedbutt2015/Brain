@@ -22,9 +22,7 @@
                             <a href="{{route('api-system')}}"> View Systems </a>
                         </li>
 
-                        <li class="{{ ($page_name == 'New System') ? 'active' : '' }}">
-                            <a href="{{route('new-system')}}"> New System </a>
-                        </li>
+        
                         
                         {{--<li class="{{ ($page_name == 'Templates') ? 'active' : '' }}">--}}
                             {{--<a href="{{route('template')}}"> Templates </a>--}}
@@ -33,9 +31,10 @@
                         <li class="{{ ($page_name == 'History') ? 'active' : '' }}">
                             <a href="{{route('api-history')}}"> History </a>
                         </li>
-                        <li class="{{ ($page_name == 'General-Config') ? 'active' : '' }}">
+                        {{--<li class="{{ ($page_name == 'General-Config') ? 'active' : '' }}">
                             <a href="{{url('general-config')}}"> General-Config </a>
-                        </li>
+                        </li>--}}
+
                     </ul>
                 </li>
             </ul>

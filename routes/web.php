@@ -109,12 +109,23 @@ Route::post('/password/reset', 'Auth\ResetPasswordController@updatePass')->name(
 Route::get('/system', 'UserActionApiController@viewSystem')->name('api-system');    //Load Cutomers Data
 Route::get('/new-system', 'PagesController@newSystem')->name('new-system');    
 Route::get('/template', 'PagesController@template')->name('template');
+Route::get('/general-setting', 'PagesController@generalSetting')->name('generalSetting');
 
 Route::post('/new-system-store', 'UserActionApiController@newSystem')->name('store-system'); //Store new Customer Data in Session
 Route::post('/new-system-template', 'UserActionApiController@storeSystem')->name('api-store-template'); //Store in DB
+Route::post('/store-system-addon', 'UserActionApiController@storeSystemAddon')->name('store-system-addon'); //Store in DB
 
+Route::get('/restore-system-{id}', 'UserActionApiController@restoreSystem')->name('api-restore-template'); //Store in DB
 Route::get('/history', 'UserActionApiController@viewHistory')->name('api-history');
 
-Route::get('/general-config','FamilyController@getAllFamilyWithAddons');
+//edit system
+
+Route::get('/general-config/{id}','FamilyController@getAllFamilyWithAddons')->name('general-config');
+Route::get('/edit-system/{id}','FamilyController@getEditSystem');
+Route::post('/edit-store-system', 'UserActionApiController@editnewSystem')->name('edit-store-system'); //Store new Customer Data in Session
+Route::post('/edit-system-addon', 'UserActionApiController@editSystemAddon')->name('edit-system-addon'); //Store in DB
+Route::post('/edit-system-template', 'UserActionApiController@updateStoreSystem')->name('api-edit-store-template'); //Store in DB
+
+//end edit system
 Route::post('/addon-save','UserAddonController@store')->name('api-saveAddon');
 Route::post('/language-currency-save','UserActionApiController@saveLanguageCurrency')->name('api-language-currency');
