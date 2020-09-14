@@ -102,7 +102,7 @@
                                                     <label for="sel1">Main Language:</label>
                                                     <select class="form-control" name="language">
                                                         <option value="English">English</option>
-                                                        <option value="Urdu">Urdu</option>
+                                                        <option value="post">Portuguese</option>
                                                         <option value="Persian">Persian</option>
                                                         <option value="Arabic">Arabic</option>
                                                     </select>
