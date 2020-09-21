@@ -122,6 +122,7 @@ Route::get('/history', 'UserActionApiController@viewHistory')->name('api-history
 
 Route::get('/general-config/{id}','FamilyController@getAllFamilyWithAddons')->name('general-config');
 Route::get('/edit-system/{id}','FamilyController@getEditSystem');
+Route::get('/delete-system/{id}','FamilyController@getDeleteSystem');
 Route::post('/edit-store-system', 'UserActionApiController@editnewSystem')->name('edit-store-system'); //Store new Customer Data in Session
 Route::post('/edit-system-addon', 'UserActionApiController@editSystemAddon')->name('edit-system-addon'); //Store in DB
 Route::post('/edit-system-template', 'UserActionApiController@updateStoreSystem')->name('api-edit-store-template'); //Store in DB

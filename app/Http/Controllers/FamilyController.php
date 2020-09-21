@@ -46,4 +46,10 @@ class FamilyController extends Controller
         return view('BrainPages.editSystem')->with($data);
 
     }
+        public function getDeleteSystem($id,Request $request){
+        $http=new Client();
+        $response=$http->request('delete',config('app.url').'/api/deleteSystem/'.$id);  
+        $deleteSystem = json_decode((string) $response->getBody(), true);
+         return redirect()->back()->with('success','System Deleted!');
+    }
 }

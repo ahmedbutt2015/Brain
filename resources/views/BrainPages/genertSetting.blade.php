@@ -63,7 +63,7 @@ $active = ['general'];
                                                             <input type="checkbox" class="custom-control-input getValue"
                                                                    name="addons[]" value="{{ $add['name']}}"
                                                                    id="{{$add['id']}}" {{in_array($add['id'],$active)?'checked':''}}>
-                                                            <label class="custom-control-label" 
+                                                            <label class="custom-control-label" style="width:max-content"
                                                                    for="{{ $add['id']}}">{{ $add['name']}}</label><br>
                                                         </div>
                                                     </div>
@@ -80,7 +80,7 @@ $active = ['general'];
                                                     <select class="form-control" name="language">
                                                         <option value="English">English</option>
                                                         <option value="Urdu">Urdu</option>
-                                                        <option value="Persian">Persian</option>
+                                                        <option value="post">Portuguese</option>
                                                         <option value="Arabic">Arabic</option>
                                                     </select>
                                                 </div>

@@ -39,7 +39,8 @@
                                         </td>
                                         <td>{{$customer['type']}}</td>
                                         <td>{{$customer['template']}}</td>
-                                        <td><a href="{{url('edit-system/'.$customer['id'])}}">Edit</a></td>
+                                        <td><a href="{{url('edit-system/'.$customer['id'])}}">Edit</a>/
+                                        <a href="{{url('delete-system/'.$customer['id'])}}">Delete</a></td>
                                     </tr>
                                 @endforeach
                             @else

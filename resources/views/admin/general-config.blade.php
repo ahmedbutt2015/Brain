@@ -76,7 +76,7 @@
                                                             <input type="checkbox" class="custom-control-input getValue checkbox-{{ucfirst($family['name'])}}"
                                                                    name="addons[]" value="{{ $add['name']}}"
                                                                    id="{{$add['id']}}" {{in_array($add['id'],$familyaddons['active_addons'])?'checked':''}}>
-                                                            <label class="custom-control-label" 
+                                                            <label class="custom-control-label" style="width:max-content"
                                                                    for="{{ $add['id']}}">{{ $add['name']}}</label><br>
                                                         </div>
                                                     </div>
@@ -90,11 +90,12 @@
 
                                                 <div class="form-group multi-language1">
                                                     <label for="sel1">Main Language:</label>
-                                                    <select class="form-control" name="language" >
+                                                    <select class="form-control" name="language" id="language" >
                                                         <option value="English" {{$lan==="English"?'selected':''}} >English</option>
                                                         <option value="Urdu" {{$lan==="Urdu"?'selected':''}}>Urdu</option>
-                                                        <option value="Persian" {{$lan==="Persian"?'selected':''}}>Persian</option>
+                                                        <option value="post" {{$lan==="post"?'selected':''}}>Portuguese</option>
                                                         <option value="Arabic" {{$lan==="Arabic"?'selected':''}}>Arabic</option>
+                                                        <option value=""></option>
                                                     </select>
                                                 </div>
                                                 @else
@@ -103,7 +104,7 @@
                                                     <select class="form-control" name="language">
                                                         <option value="English">English</option>
                                                         <option value="post">Portuguese</option>
-                                                        <option value="Persian">Persian</option>
+                                                        <option value="Urdu">Urdu</option>
                                                         <option value="Arabic">Arabic</option>
                                                     </select>
                                                 </div>
@@ -112,9 +113,10 @@
                                                 @if(in_array('multi-currency',$familyaddons['activeNames']))
                                                 <div class="form-group currencyshow1">
                                                     <label for="sel1">Main Currency:</label>
-                                                    <select class="form-control" name="currency">
+                                                    <select class="form-control" name="currency" id="currency">
                                                         <option value="Euro" {{$cun === "Euro"?'selected':''}}>Euro</option>
                                                         <option value="Dollar" {{$cun === "Dollar"?'selected':''}}>Dollar</option>
+                                                        <option value=""></option>
                                                     </select>
                                                 </div>
                                                 @else
@@ -206,18 +208,33 @@ $( document ).ready(function() {
         $(".currencyshow").toggle(this.checked);
     }
     }
-
-
-    // if(name2 === "Multi-language" ){
-    //     $(".languageShow").toggle(this.checked);
-    // }
-    // if(name2 === "Multi-currency"){
-    //     $(".currencyshow").toggle(this.checked);
-    // }
     $("#tab-"+name2).toggle()
     $(".checkbox-"+name2).attr('checked',false)
+    if("#tab-"+name2 === "#tab-User" && this.checked === false ){
+        $("input[name=user_name_list]").val('');
+        $("input[name=user_name_single]").val('');
+        $("#language option[value='']").attr('selected', true);
+        $("#currency option[value='']").attr('selected', true);
+    }
+    if("#tab-"+name2 === "#tab-Interloctour" && this.checked === false ){
+        $("input[name=contact_name_list]").val('');
+        $("input[name=contact_name_single]").val('');
+    }
 
 var data1 = <?php echo json_encode($familyaddons['data']); ?>;
 });
+
+function firstCap(str){
+  var returnVar='';
+  var strSplit=str.split(' ');
+ for(var i=0;i<strSplit.length;i++){
+ returnVar=returnVar+strSplit[i].substring(0,1).toUpperCase()+strSplit[i].substring(1).toLowerCase() +' ';
+  }
+return returnVar
+}
+
 });
 </script>
+<style>
+    input {text-transform: capitalize;}
+</style>
